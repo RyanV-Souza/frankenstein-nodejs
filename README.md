@@ -1,0 +1,2 @@
+# frankenstein-nodejs
+some ideas
