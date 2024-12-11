@@ -8,14 +8,6 @@ export function configureSwagger(app: INestApplication) {
     .setVersion("1.0")
     .addBearerAuth(undefined, "access-token")
     .addSecurityRequirements("access-token")
-    .addGlobalParameters({
-      name: "lang",
-      in: "header",
-      required: true,
-      schema: {
-        enum: ["pt-br", "en-us", "es"],
-      },
-    })
     .build();
 
   SwaggerModule.createDocument(app, config);
