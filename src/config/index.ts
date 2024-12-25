@@ -10,7 +10,27 @@ export function configureSwagger(app: INestApplication) {
     .addSecurityRequirements("access-token")
     .build();
 
-  SwaggerModule.createDocument(app, config);
+  const document = SwaggerModule.createDocument(app, config);
+
+  SwaggerModule.setup("doc", app, document, {
+    swaggerOptions: {
+      tagsSorter: "alpha",
+      operationsSorter: (a, b) => {
+        const order = {
+          get: "0",
+          post: "1",
+          patch: "2",
+          put: "3",
+          delete: "4",
+        };
+
+        return (
+          order[a.get("method")].localeCompare(order[b.get("method")]) ||
+          a.get("path").localeCompare(b.get("path"))
+        );
+      },
+    },
+  });
 }
 
 export function setGlobalPrefix(app: INestApplication) {

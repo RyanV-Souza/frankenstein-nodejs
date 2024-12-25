@@ -9,7 +9,8 @@
     "ignoreUnknown": false,
     "ignore": [
       "dist",
-      "node_modules"
+      "node_modules",
+      "src/database/migrations/*"
     ]
   },
   "formatter": {
@@ -26,7 +27,8 @@
       "recommended": true,
       "style": {
         "useTemplate": "off",
-        "useImportType": "off"
+        "useImportType": "off",
+        "noInferrableTypes": "off"
       },
       "complexity": {
         "noUselessConstructor": "off"
